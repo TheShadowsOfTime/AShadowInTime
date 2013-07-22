@@ -1,5 +1,5 @@
 A Shadow In Time, a co-op rpg fps for the pc(linux mac windows)
-    Copyright (C) 2013 Michael Jeremy Winters and Christopher James Schafer
+    Copyright (C) 2013 Michael Jeremy Winters and Christopher James Schaefer
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl_test.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/asm-debug-all.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl_util_applet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl_util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lwjgl-debug.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/jinput.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/AppleJavaExtensions.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jars/lzma.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

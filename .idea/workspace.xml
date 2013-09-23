@@ -6,6 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="55000620-f41f-4158-8143-0ace6ff01257" time="1379899993625" ignored="false" />
     <file path="/Mission.java" changelist="55000620-f41f-4158-8143-0ace6ff01257" time="1379900447281" ignored="false" />
+    <file path="/Quest.java" changelist="55000620-f41f-4158-8143-0ace6ff01257" time="1379900692921" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,10 +67,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Mission.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Mission.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/io/github/cjs07/mission/Mission.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="53" selection-start="190" selection-end="190" vertical-scroll-proportion="0.18590522">
+            <state line="9" column="53" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Quest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/io/github/cjs07/quest/Quest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="27" selection-start="181" selection-end="181" vertical-scroll-proportion="0.14459296">
               <folding />
             </state>
           </provider>
@@ -94,6 +104,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/io/github/cjs07/mission/Mission.java" />
+        <option value="$PROJECT_DIR$/src/io/github/cjs07/quest/Quest.java" />
       </list>
     </option>
   </component>
@@ -164,6 +175,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cjs07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="A-Shadow-In-Time" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="A-Shadow-In-Time" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cjs07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -416,7 +449,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/io/github/cjs07/mission/Mission.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="53" selection-start="190" selection-end="190" vertical-scroll-proportion="0.18590522">
+        <state line="9" column="53" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/io/github/cjs07/quest/Quest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="27" selection-start="181" selection-end="181" vertical-scroll-proportion="0.14459296">
           <folding />
         </state>
       </provider>

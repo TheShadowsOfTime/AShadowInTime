@@ -2,8 +2,9 @@ package com.cjs07.ashadowintime;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.awt.image.CropImageFilter;
+import java.awt.image.FilteredImageSource;
 
 /**
  * Created by CJ on 1/25/14.
@@ -23,6 +24,21 @@ public class ASTScreen extends JPanel implements Runnable {
     /*If the game is paused*/
     public static volatile boolean paused = false;
 
+    /*Main Menu Buttons*/
+    public static JButton play;
+    public static JButton options;
+
+    /*Resource tilesets*/
+    public static Image[] tileset1 = new Image[900];
+    public static Image[] tileset2 = new Image[900];
+    public static Image[] tileset3 = new Image[900];
+    public static Image[] tileset4 = new Image[900];
+    public static Image[] tileset5 = new Image[900];
+    public static Image[] tileset6 = new Image[900];
+
+
+    public static Point mse = new Point(0, 0);
+
 
     public ASTScreen (ASTFrame frame) {
         this.frame = frame;
@@ -31,6 +47,71 @@ public class ASTScreen extends JPanel implements Runnable {
         frame.addMouseListener(new InputListener());
         frame.addMouseMotionListener(new InputListener());
 
+        play = new JButton("Play");
+        play.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        scene = 1;
+                    }
+                }
+        );
+        add(play, BorderLayout.NORTH);
+
+        options = new JButton("Options");
+        options.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    scene = 2;
+                }
+            }
+        );
+        add(options, BorderLayout.SOUTH);
+
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset1[x + (y * 30)] = new ImageIcon("res/tileset1.png").getImage();
+                tileset1[x + (y * 30)] = createImage(new FilteredImageSource(tileset1[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset2[x + (y * 30)] = new ImageIcon("res/tileset2.png").getImage();
+                tileset2[x + (y * 30)] = createImage(new FilteredImageSource(tileset2[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset3[x + (y * 30)] = new ImageIcon("res/tileset3.png").getImage();
+                tileset3[x + (y * 30)] = createImage(new FilteredImageSource(tileset3[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset4[x + (y * 30)] = new ImageIcon("res/tileset4.png").getImage();
+                tileset4[x + (y * 30)] = createImage(new FilteredImageSource(tileset4[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset5[x + (y * 30)] = new ImageIcon("res/tileset5.png").getImage();
+                tileset5[x + (y * 30)] = createImage(new FilteredImageSource(tileset5[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+        for (int x = 0; x < 30; x++) {
+            for (int y = 0; y < 30; y++){
+                tileset6[x + (y * 30)] = new ImageIcon("res/tileset6.png").getImage();
+                tileset6[x + (y * 30)] = createImage(new FilteredImageSource(tileset6[x + (y * 30)].getSource(),
+                        new CropImageFilter(x * 32, y * 32, 32, 32)));
+            }
+        }
+
         running = true;
         scene = 0;
         thread.start();
@@ -38,10 +119,12 @@ public class ASTScreen extends JPanel implements Runnable {
 
     @Override
     public void paintComponent (Graphics g) {
+        super.paintComponent(g);
+
         if (scene == 0) { //main menu
 
         } else if (scene == 1) { //load save menu
-
+            g.drawRect(0, 0, getWidth(), getHeight());
         } else if (scene == 2) { //options screen
 
         } else if (scene == 3) { //game play
@@ -54,8 +137,9 @@ public class ASTScreen extends JPanel implements Runnable {
     public void run () {
         while (running) {
             repaint();
+            revalidate();
             try {
-                Thread.sleep(10);
+                Thread.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -65,6 +149,21 @@ public class ASTScreen extends JPanel implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+
+            if (scene == 0) {
+
+            } else if (scene == 1) {
+                play.setVisible(false);
+                options.setVisible(false);
+            } else if (scene == 2) {
+                play.setVisible(false);
+                options.setVisible(false);
+            } else if (scene == 3) {
+                play.setVisible(false);
+                options.setVisible(false);
+            } else if (scene == 4) {
+
             }
         }
     }

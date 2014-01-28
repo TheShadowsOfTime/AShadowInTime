@@ -25,7 +25,8 @@ public class ASTScreen extends JPanel implements Runnable {
     public static volatile boolean paused = false;
 
     /*Main Menu Buttons*/
-    public static JButton play;
+    public static JButton newGame;
+    public static JButton loadGame;
     public static JButton options;
 
     /*Resource tilesets*/
@@ -36,10 +37,6 @@ public class ASTScreen extends JPanel implements Runnable {
     public static Image[] tileset5 = new Image[900];
     public static Image[] tileset6 = new Image[900];
 
-
-    public static Point mse = new Point(0, 0);
-
-
     public ASTScreen (ASTFrame frame) {
         this.frame = frame;
 
@@ -47,8 +44,19 @@ public class ASTScreen extends JPanel implements Runnable {
         frame.addMouseListener(new InputListener());
         frame.addMouseMotionListener(new InputListener());
 
-        play = new JButton("Play");
-        play.addActionListener(
+        newGame = new JButton("New Game");
+        newGame.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        scene = 3;
+                    }
+                }
+        );
+        add(newGame, BorderLayout.NORTH);
+
+        loadGame = new JButton("Resume Game");
+        loadGame.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -56,7 +64,7 @@ public class ASTScreen extends JPanel implements Runnable {
                     }
                 }
         );
-        add(play, BorderLayout.NORTH);
+        add(loadGame, BorderLayout.SOUTH);
 
         options = new JButton("Options");
         options.addActionListener(
@@ -154,13 +162,16 @@ public class ASTScreen extends JPanel implements Runnable {
             if (scene == 0) {
 
             } else if (scene == 1) {
-                play.setVisible(false);
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
                 options.setVisible(false);
             } else if (scene == 2) {
-                play.setVisible(false);
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
                 options.setVisible(false);
             } else if (scene == 3) {
-                play.setVisible(false);
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
                 options.setVisible(false);
             } else if (scene == 4) {
 

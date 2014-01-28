@@ -55,6 +55,6 @@ public class InputListener implements KeyListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        ASTScreen.mse = new Point(e.getX(), e.getY());
+
     }
 }

@@ -26,6 +26,7 @@ public class ASTFrame extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("res/icon.png").getImage());
+        setLayout(new FlowLayout());
         setVisible(true);
 
         add(new ASTScreen(this));

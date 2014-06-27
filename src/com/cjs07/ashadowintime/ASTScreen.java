@@ -29,14 +29,6 @@ public class ASTScreen extends JPanel implements Runnable {
     public static JButton loadGame;
     public static JButton options;
 
-    /*New Game GUI Components*/
-    public static JButton newGameBack;
-    public static JButton newGameContinue;
-
-    /*Load Game GUI Components*/
-
-    /*Options GUI Components*/
-
     /*Resource tilesets*/
     public static Image[] tileset1 = new Image[900];
     public static Image[] tileset2 = new Image[900];
@@ -57,7 +49,7 @@ public class ASTScreen extends JPanel implements Runnable {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        scene = 5;
+                        scene = 3;
                     }
                 }
         );
@@ -84,30 +76,6 @@ public class ASTScreen extends JPanel implements Runnable {
             }
         );
         add(options, BorderLayout.SOUTH);
-
-        newGameBack = new JButton("Cancel");
-        newGameBack.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    scene = 0;
-                }
-            }
-        );
-        add(newGameBack);
-        newGameBack.setVisible(false);
-
-        newGameContinue = new JButton("Start");
-        newGameContinue.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    scene = 3;
-                }
-            }
-        );
-        add(newGameContinue);
-        newGameContinue.setVisible(false);
 
         for (int x = 0; x < 30; x++) {
             for (int y = 0; y < 30; y++){
@@ -164,18 +132,13 @@ public class ASTScreen extends JPanel implements Runnable {
         if (scene == 0) { //main menu
 
         } else if (scene == 1) { //load save menu
-
+            g.drawRect(0, 0, getWidth(), getHeight());
         } else if (scene == 2) { //options screen
 
         } else if (scene == 3) { //game play
 
         } else if (scene == 4) { //pause menu
 
-        } else if (scene == 5) { //confirm overwrite from new game screen
-            g.setFont(new Font("Times New Roman", Font.PLAIN, 28));
-            g.setColor(Color.RED);
-            String message = "WARNING: Creating a new game will overwrite any existing save data";
-            g.drawString(message, 5, 50);
         }
     }
 
@@ -197,11 +160,7 @@ public class ASTScreen extends JPanel implements Runnable {
             }
 
             if (scene == 0) {
-                newGame.setVisible(true);
-                loadGame.setVisible(true);
-                options.setVisible(true);
-                newGameBack.setVisible(false);
-                newGameContinue.setVisible(false);
+
             } else if (scene == 1) {
                 newGame.setVisible(false);
                 loadGame.setVisible(false);
@@ -216,13 +175,6 @@ public class ASTScreen extends JPanel implements Runnable {
                 options.setVisible(false);
             } else if (scene == 4) {
 
-            } else if (scene == 5) {
-                newGame.setVisible(false);
-                loadGame.setVisible(false);
-                options.setVisible(false);
-
-                newGameBack.setVisible(true);
-                newGameContinue.setVisible(true);
             }
         }
     }

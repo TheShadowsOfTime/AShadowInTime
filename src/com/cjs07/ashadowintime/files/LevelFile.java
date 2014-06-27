@@ -1,10 +1,5 @@
 package com.cjs07.ashadowintime.files;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
 /**
  * Created by CJ on 1/27/14.
  * Developed for the A-Shadow-In-Time project.
@@ -18,8 +13,10 @@ public class LevelFile {
 
     Level level = new Level();
 
-    public Level createLevel (String fileName) {
-        try {
+    public Level createLevel (String fileName)
+    {
+        try
+        {
             file = new FileInputStream("level/" + fileName + ".ast");
             reader = new InputStreamReader(file);
 
@@ -30,19 +27,26 @@ public class LevelFile {
             int x = 0;
             int y = 0;
 
-            while(levelBuilder.hasNext()) {
-                level.map[x][y] = levelBuilder.nextInt();
+            while(levelBuilder.hasNext())
+            {
+                level.map[x][y] = scanner.nextInt();
 
-                if (x < 100 - 1) {
+                if (x < 100 - 1)
+                {
                     x++;
-                } else {
+                }
+                else
+                {
                     y++;
+
                     x = 0;
                 }
             }
+
             return level;
         }
-        catch (FileNotFoundException e) {
+        catch (FileNotFoundException e)
+        {
             e.printStackTrace();
         }
 

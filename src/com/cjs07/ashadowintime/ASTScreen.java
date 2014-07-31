@@ -14,6 +14,9 @@ public class ASTScreen extends JPanel implements Runnable {
 
     public Thread thread = new Thread(this);
 
+    /*Responsible for logic relating to music*/
+    public Thread musicThread = new Thread(new RunnableOverlapLoop);
+
     public static volatile ASTFrame frame;
 
     /*Controls painting*/
@@ -123,6 +126,7 @@ public class ASTScreen extends JPanel implements Runnable {
         running = true;
         scene = 0;
         thread.start();
+        musicThread.start();
     }
 
     @Override

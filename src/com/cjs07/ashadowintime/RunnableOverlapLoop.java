@@ -5,7 +5,7 @@ public class RunnableOverlapLoop impelemnts Runnable {
         Thread.sleep((60*2) * 1000);
       } catch (InterruptedException e) {
       }
-      ASTUtil.playSong("mainmenu.wav");
+      ASTUtils.playSong("mainmenu.wav");
     }
   }
 }

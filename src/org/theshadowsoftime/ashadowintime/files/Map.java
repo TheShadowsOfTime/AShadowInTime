@@ -18,6 +18,8 @@ public class Map {
     InputStreamReader reader;
     Scanner scanner;
 
+    BufferedImage mapImage;
+
     public Map(String name, int width, int height) throws FileNotFoundException {
         map = new int[width][height];
         in = new FileInputStream("res/" + name);
@@ -38,6 +40,13 @@ public class Map {
             for (int y = 0; y < 10; y++) {
                 g.drawImage(Resource.getTilesetImage(map[x][y]), x*10, y*10, null);
             }
+        }
+        return mapImage;
+    }
+
+    public Image getMapImage() {
+        if (mapImage == null) {
+            createMapImage();
         }
         return mapImage;
     }

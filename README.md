@@ -1,9 +1,8 @@
 A Shadow In Time
 =============
 
-A Shadow In Time is a first person shooter RPG fps game for the PC. The game is coded in Java. The game is developed and maintained by cjs07.
+A Shadow In Time is a RPG game for the PC (Mac, Windows, and Linux). The game is coded in Java. The game is developed and maintained by The Shadows Of Time.
 
-<p>Current Version: N/A (Indev)</p>
 <p>Release Date: Unknown</p>
 <p>File size: N/A</p>
 <p>Wiki: No currently complete wikis</p>

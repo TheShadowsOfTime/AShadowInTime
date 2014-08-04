@@ -1,4 +1,4 @@
-package org.theshadowsoftime.ashadowintime;
+package org.theshadowsoftime.ashadowintime.input;
 
 import java.awt.event.*;
 

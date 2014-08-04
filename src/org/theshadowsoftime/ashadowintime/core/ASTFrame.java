@@ -1,4 +1,4 @@
-package org.theshadowsoftime.ashadowintime;
+package org.theshadowsoftime.ashadowintime.core;
 
 import javax.swing.*;
 import java.awt.*;

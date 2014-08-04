@@ -1,10 +1,12 @@
-package org.theshadowsoftime.ashadowintime;
+package org.theshadowsoftime.ashadowintime.core;
+
+import org.theshadowsoftime.ashadowintime.input.InputListener;
+import org.theshadowsoftime.ashadowintime.util.RunnableOverlapLoop;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.CropImageFilter;
-import java.awt.image.FilteredImageSource;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -30,14 +32,6 @@ public class ASTScreen extends JPanel implements Runnable {
     public static JButton newGame;
     public static JButton loadGame;
     public static JButton options;
-
-    /*Resource tilesets*/
-    public static Image[] tileset1 = new Image[900];
-    public static Image[] tileset2 = new Image[900];
-    public static Image[] tileset3 = new Image[900];
-    public static Image[] tileset4 = new Image[900];
-    public static Image[] tileset5 = new Image[900];
-    public static Image[] tileset6 = new Image[900];
 
     public ASTScreen (ASTFrame frame) {
         this.frame = frame;
@@ -78,49 +72,6 @@ public class ASTScreen extends JPanel implements Runnable {
             }
         );
         add(options, BorderLayout.SOUTH);
-
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset1[x + (y * 30)] = new ImageIcon("res/tileset1.png").getImage();
-                tileset1[x + (y * 30)] = createImage(new FilteredImageSource(tileset1[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset2[x + (y * 30)] = new ImageIcon("res/tileset2.png").getImage();
-                tileset2[x + (y * 30)] = createImage(new FilteredImageSource(tileset2[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset3[x + (y * 30)] = new ImageIcon("res/tileset3.png").getImage();
-                tileset3[x + (y * 30)] = createImage(new FilteredImageSource(tileset3[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset4[x + (y * 30)] = new ImageIcon("res/tileset4.png").getImage();
-                tileset4[x + (y * 30)] = createImage(new FilteredImageSource(tileset4[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset5[x + (y * 30)] = new ImageIcon("res/tileset5.png").getImage();
-                tileset5[x + (y * 30)] = createImage(new FilteredImageSource(tileset5[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
-        for (int x = 0; x < 30; x++) {
-            for (int y = 0; y < 30; y++){
-                tileset6[x + (y * 30)] = new ImageIcon("res/tileset6.png").getImage();
-                tileset6[x + (y * 30)] = createImage(new FilteredImageSource(tileset6[x + (y * 30)].getSource(),
-                        new CropImageFilter(x * 32, y * 32, 32, 32)));
-            }
-        }
 
         running = true;
         scene = 0;

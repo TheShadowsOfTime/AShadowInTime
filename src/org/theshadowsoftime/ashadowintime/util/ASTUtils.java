@@ -1,4 +1,6 @@
-package org.theshadowsoftime.ashadowintime;
+package org.theshadowsoftime.ashadowintime.util;
+
+import org.theshadowsoftime.ashadowintime.core.ASTFrame;
 
 import javax.swing.*;
 import java.applet.AudioClip;

@@ -11,22 +11,20 @@ import java.awt.event.ActionListener;
 /**
  *
  */
-public class ASTScreen extends JPanel implements Runnable {
-
-    public Thread thread = new Thread(this);
+public class ASTScreen extends JPanel {
 
     /*Responsible for logic relating to music*/
-    public Thread musicThread = new Thread(new RunnableOverlapLoop());
+    Thread musicThread = new Thread(new RunnableOverlapLoop());
 
-    public static volatile ASTFrame frame;
+    ASTFrame frame;
 
     /*Controls painting*/
-    public static volatile int scene;
+    private int state;
 
     /*If the game is running*/
-    public static volatile boolean running;
+    private boolean running;
     /*If the game is paused*/
-    public static volatile boolean paused = false;
+    private boolean paused = false;
 
     /*Main Menu Buttons*/
     public static JButton newGame;
@@ -37,15 +35,14 @@ public class ASTScreen extends JPanel implements Runnable {
         this.frame = frame;
 
         frame.addKeyListener(new InputListener());
-        frame.addMouseListener(new InputListener());
-        frame.addMouseMotionListener(new InputListener());
 
         newGame = new JButton("New Game");
         newGame.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        scene = 3;
+                        state = 3;
+                        updateLayout();
                     }
                 }
         );
@@ -56,7 +53,8 @@ public class ASTScreen extends JPanel implements Runnable {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        scene = 1;
+                        state = 1;
+                        updateLayout();
                     }
                 }
         );
@@ -67,69 +65,87 @@ public class ASTScreen extends JPanel implements Runnable {
             new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    scene = 2;
+                    state = 2;
+                    updateLayout();
                 }
             }
         );
         add(options, BorderLayout.SOUTH);
 
         running = true;
-        scene = 0;
-        thread.start();
+        state = 0;
         musicThread.start();
+    }
+
+    public void updateLayout() {
+        switch (state) {
+            case 0:
+                newGame.setVisible(true);
+                loadGame.setVisible(true);
+                options.setVisible(true);
+                break;
+            case 1:
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
+                options.setVisible(false);
+                break;
+            case 2:
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
+                options.setVisible(false);
+                break;
+            case 3:
+                newGame.setVisible(false);
+                loadGame.setVisible(false);
+                options.setVisible(false);
+                break;
+            case 4:
+                break;
+            default:
+                throw new IllegalStateException("State is not a valid value");
+        }
+        repaint();
+        revalidate();
     }
 
     @Override
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
 
-        if (scene == 0) { //main menu
+        if (state == 0) { //main menu
 
-        } else if (scene == 1) { //load save menu
+        } else if (state == 1) { //load save menu
             g.drawRect(0, 0, getWidth(), getHeight());
-        } else if (scene == 2) { //options screen
+        } else if (state == 2) { //options screen
 
-        } else if (scene == 3) { //game play
+        } else if (state == 3) { //game play
 
-        } else if (scene == 4) { //pause menu
+        } else if (state == 4) { //pause menu
 
         }
     }
 
-    public void run () {
-        while (running) {
-            repaint();
-            revalidate();
-            try {
-                Thread.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            while (paused) {
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+    public int getState() {
+        return state;
+    }
 
-            if (scene == 0) {
+    public void setState(int state) {
+        this.state = state;
+    }
 
-            } else if (scene == 1) {
-                newGame.setVisible(false);
-                loadGame.setVisible(false);
-                options.setVisible(false);
-            } else if (scene == 2) {
-                newGame.setVisible(false);
-                loadGame.setVisible(false);
-                options.setVisible(false);
-            } else if (scene == 3) {
-                newGame.setVisible(false);
-                loadGame.setVisible(false);
-                options.setVisible(false);
-            } else if (scene == 4) {
+    public boolean isRunning() {
+        return running;
+    }
 
-            }
-        }
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 }

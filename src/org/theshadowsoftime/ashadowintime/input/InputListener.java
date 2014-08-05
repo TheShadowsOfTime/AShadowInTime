@@ -1,11 +1,12 @@
 package org.theshadowsoftime.ashadowintime.input;
 
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  *
  */
-public class InputListener implements KeyListener, MouseListener, MouseMotionListener {
+public class InputListener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -13,46 +14,19 @@ public class InputListener implements KeyListener, MouseListener, MouseMotionLis
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
 
+        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+
+        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+
+        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
 
     }
 }

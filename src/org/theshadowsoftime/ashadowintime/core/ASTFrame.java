@@ -29,7 +29,7 @@ public class ASTFrame extends JFrame{
         setLayout(new FlowLayout());
         setVisible(true);
 
-        add(new ASTScreen(this));
+        setContentPane(new ASTScreen(this));
     }
 
     public static void main (String[] args) {
